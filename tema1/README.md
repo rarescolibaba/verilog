@@ -7,5 +7,5 @@
 * Muxul 1bit structural este alcătuit din porțile primitive Verilog **not**, **and**, **or**
 * Muxul Nbit behavioral conține un simplu assign cu operator ternar în funcție de selecție
 # Forme de undă:
-![tb_struct](https://github.com/rarescolibaba/verilog/assets/72991062/bbc04203-842a-4459-900f-ce9d237062b4)
-![tb_behav](https://github.com/rarescolibaba/verilog/assets/72991062/acea2bd7-eaf9-4858-9705-1382ea9f0d3f)
+![tb_struct](https://github.com/rarescolibaba/verilog/assets/72991062/83b1b740-0e3b-49bd-b5f0-7c2d44a49626)
+![tb_behav](https://github.com/rarescolibaba/verilog/assets/72991062/ead79f5c-5ef0-4c4c-9ea9-bb54dd57b1e8)
