@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="35.601 ns"></ZoomEndTime>
+      <Cursor1Time time="8.250 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="176"></NameColumnWidth>
+      <ValueColumnWidth column_width="80"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="5" />
+   <wvobject type="divider" fp_name="divider110">
+      <obj_property name="label">tb_behav</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="group98" type="group">
+      <obj_property name="label">mux2to1_8bit</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb/a1" type="array">
+         <obj_property name="ElementShortName">a1[7:0]</obj_property>
+         <obj_property name="ObjectShortName">a1[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/b1" type="array">
+         <obj_property name="ElementShortName">b1[7:0]</obj_property>
+         <obj_property name="ObjectShortName">b1[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/sel1" type="logic">
+         <obj_property name="ElementShortName">sel1</obj_property>
+         <obj_property name="ObjectShortName">sel1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/o1" type="array">
+         <obj_property name="ElementShortName">o1[7:0]</obj_property>
+         <obj_property name="ObjectShortName">o1[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group99" type="group">
+      <obj_property name="label">mux2to1_32bit</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb/a2" type="array">
+         <obj_property name="ElementShortName">a2[31:0]</obj_property>
+         <obj_property name="ObjectShortName">a2[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/b2" type="array">
+         <obj_property name="ElementShortName">b2[31:0]</obj_property>
+         <obj_property name="ObjectShortName">b2[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/sel2" type="logic">
+         <obj_property name="ElementShortName">sel2</obj_property>
+         <obj_property name="ObjectShortName">sel2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb/o2" type="array">
+         <obj_property name="ElementShortName">o2[31:0]</obj_property>
+         <obj_property name="ObjectShortName">o2[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb/N1" type="array">
+      <obj_property name="ElementShortName">N1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">N1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/N2" type="array">
+      <obj_property name="ElementShortName">N2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">N2[31:0]</obj_property>
+   </wvobject>
+</wave_config>
