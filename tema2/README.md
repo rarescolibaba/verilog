@@ -1,3 +1,6 @@
+# Todo  
+* Funcția multiply_func
+* ALU pentru toate operațiile (inclusiv comparare și decrementare)
 # Highlights:  
 * Înmulțirea se face între registrele a și b existente
 * Rezultatul înmulțirii este stocat în result, taskul multiply având un singur parametru de ieșire
