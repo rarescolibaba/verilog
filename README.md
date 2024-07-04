@@ -7,3 +7,4 @@
 1. Poartă AND pe 1 bit (dataflow)
 2. ALU cu 7 operații (behavioral)
 3. Divizor de frecvență (behavioral)
+4. LED flasher implementat pe FPGA Blackboard (folosind clockul intern de ~4MHz și un divizor de frecvență)
