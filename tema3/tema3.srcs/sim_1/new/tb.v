@@ -32,7 +32,7 @@ module tb;
     initial begin
         reset = 1; enable = 0; readps = 0; writeps = 0; sin = 0; plin = 0;
         #2 reset = 0; enable = 1; plin = 16'hDEAD;
-        #2 enable = 0; plin = 16'hFFFF;
+        #2 enable = 0; plin = 16'hBEEF;
         #20 reset = 1;
         #2 reset = 0; enable = 1; readps = 1; writeps = 1; sin = 1;
         #2 sin = 0;
