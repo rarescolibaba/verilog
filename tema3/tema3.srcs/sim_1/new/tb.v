@@ -39,6 +39,11 @@ module tb;
         #2 sin = 1;
         #2 sin = 0;
         #60 reset = 1; enable = 0;
+        #2 reset = 0; enable = 1; readps = 1; writeps = 0; sin = 1;
+        #2 sin = 1;
+        #2 sin = 1;
+        #2 sin = 0;
+        #60 reset = 1; enable = 0;
         #2 reset = 0;
         // todo: {writeps, readps} = 01, 10 (posi/sopi)
 //        #1 reset = 0; enable = 1; writeps = 1;
@@ -58,6 +63,6 @@ module tb;
     end
     
     initial begin
-        #100 $finish;
+        #150 $finish;
     end
 endmodule

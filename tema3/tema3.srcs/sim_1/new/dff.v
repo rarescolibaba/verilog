@@ -41,9 +41,9 @@ module dff(
                     po <= pi;
                     so <= 1'bx;
                 end
-                2'b01: begin // todo
+                2'b01: begin // partial
                     po <= si;
-                    so <= 1'bx;
+                    so <= si;
                 end
                 2'b10: begin // todo
                     so <= pi;
