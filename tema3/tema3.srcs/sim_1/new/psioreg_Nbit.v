@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 07/04/2024 12:08:14 PM
+// Create Date: 07/04/2024 12:13:21 PM
 // Design Name: 
-// Module Name: dff
+// Module Name: psioreg_Nbit
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,12 +20,19 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module dff(
-    output reg q,
+module psioreg_Nbit #(parameter N = 8) (
+    output [N-1:0] po,
+    output so,
     input clock,
-    input d
+    input reset,
+    input enable,
+    input ls,
+    input si,
+    input [N-1:0] pi
     );
-    always @(posedge clock) begin
-        q <= d;
-    end
+    wire dff_clock;
+    
+    assign dff_clock = clock & enable;
+    
+    dff dff_inst [N-1:0] (dff_clock);
 endmodule
