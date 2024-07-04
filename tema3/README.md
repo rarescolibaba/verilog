@@ -1,5 +1,6 @@
 # Todo:  
-* Momentan, operațiile permise sunt PIPO și SISO.
+* PISO/SIPO folosind bistabilele drept registre de shiftare
+* Header „last” pt. SIPO: semnalul last se activează pentru a înceta citirea de la si și a afișa rezultatul la po
 # Highlights:  
 * Bistabilii sunt instanțiați într-un modul top care leagă so (serial output) al fiecărui bistabil la si (serial input) al următorului
 * Sunt folosite semnalele enable, readps și writeps pentru a comunica dacă se actualizează registrele și de la ce intrare la ce ieșire
