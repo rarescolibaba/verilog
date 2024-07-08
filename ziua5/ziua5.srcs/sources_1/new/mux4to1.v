@@ -21,7 +21,7 @@
 
 
 module mux4to1_4bit(
-    output reg [3:0] out,
+    output [3:0] out,
     input [3:0] a,
     input [3:0] b,
     input [3:0] c,
@@ -29,11 +29,5 @@ module mux4to1_4bit(
     input [1:0] sel
     );
     
-    always @(sel)
-        case (sel)
-            2'b00: out <= a;
-            2'b01: out <= b;
-            2'b10: out <= c;
-            2'b11: out <= d;
-        endcase
+    assign out = sel[1] ? (sel[0] ? d : c) : (sel[0] ? b : a);
 endmodule
