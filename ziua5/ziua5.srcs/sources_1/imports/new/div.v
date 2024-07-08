@@ -24,7 +24,7 @@ module div(
     output reg clkout,
     input clkin
     );
-    reg [31:0] target = 1 << 22, i = 1;
+    reg [31:0] target = 1 << 16, i = 1;
     always @(posedge clkin)
         if (i < target) i = i + 1;
         else begin
