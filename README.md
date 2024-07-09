@@ -8,3 +8,4 @@
 2. ALU cu 7 operații (behavioral)
 3. Divizor de frecvență (behavioral)
 4. LED flasher implementat pe FPGA Blackboard (folosind clockul intern de ~4MHz și un divizor de frecvență)
+5. Afișaj pe 4 display-uri pe 7 segmente
