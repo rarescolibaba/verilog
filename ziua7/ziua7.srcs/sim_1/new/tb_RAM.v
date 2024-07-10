@@ -31,7 +31,7 @@ module tb_RAM;
     initial begin
         addr = 0; din = 0; rw = 0;
         #2 addr = 8'h00; din = 32'hDEADC0DE; rw = 0;
-        #2 addr = 8'h01; din = 32'hCAFEBABE; rw = 0;
+        #2 addr = 8'h01; din = 32'hBEACAFEA; rw = 0;
         #2 addr = 8'h00; rw = 1;
         #2 addr = 8'h00; din = 32'hABADCAFE; rw = 0;
         #2 addr = 8'h01; rw = 1;
