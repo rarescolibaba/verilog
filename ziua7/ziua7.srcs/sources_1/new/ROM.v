@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module ROM #(parameter width = 32, height = 100, file = "rom_contents.txt") (
+module ROM #(parameter width = 32, height = 100, file = "rom.mem") (
     output reg [width-1:0] out,
     input clk,
     input [$clog2(height)-1:0] addr,
@@ -32,9 +32,11 @@ module ROM #(parameter width = 32, height = 100, file = "rom_contents.txt") (
     
     initial begin
         $readmemh(file, rom);
-        for (i = 0; i < height; i = i + 1) begin
-            #5 out <= rom[i];
-        end
+//        for (i = 0; i < height; i = i + 1) begin
+//            wait (clk && en);
+//            out <= rom[i];
+//            wait (~clk);
+//        end
     end
     
     always @(posedge clk)

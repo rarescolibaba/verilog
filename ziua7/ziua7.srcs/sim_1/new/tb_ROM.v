@@ -26,24 +26,20 @@ module tb_ROM;
     wire [31:0] out;
 
     ROM rooom(out, clk, addr, en);
-    
+
     initial begin
-        addr = 0; en = 1;
-        #2 addr = 8'h00; din = 32'hDEADC0DE;
-        #2 addr = 8'h01; din = 32'hCAFEBABE;
-        #2 addr = 8'h00;
-        #2 addr = 8'h00; din = 32'hABADCAFE;
-        #2 addr = 8'h01;
-        #2 addr = 8'h00;
-        #2 addr = 8'h01;
+        en = 0; addr = 0;
+        #5 en = 1;
+        #5 addr = 8'h00;
+        #5 addr = 8'h03;
     end
-    
+
     initial begin
         clk = 0;
         forever #1 clk = ~clk;
     end
-    
+
     initial begin
-        #20 $finish;
+        #100 $finish;
     end
 endmodule
