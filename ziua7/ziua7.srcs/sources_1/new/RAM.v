@@ -36,7 +36,7 @@ module RAM #(parameter width = 32, height = 100) (
         end
 
     always @(posedge clk) begin
-        if (~rw) // write
+        if (rw)
             ram[addr] <= din;
         else
             out <= ram[addr];
