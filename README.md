@@ -1,3 +1,7 @@
+# Todo
+* [tema2](https://github.com/rarescolibaba/verilog/tree/main/tema2#todo)
+* [tema3](https://github.com/rarescolibaba/verilog/tree/main/tema3) (pe ramura [todo](https://github.com/rarescolibaba/verilog/tree/todo): [adbf389](https://github.com/rarescolibaba/verilog/commit/adbf38966ae8cddc0b69f031d0fea2a9502a45aa))
+
 # Teme  
 1. MUX parametrizabil pe 8 și 32 de biți în două feluri: structural și behavioral
 2. Diferența dintre task si funcție, înmulțire folosind ALU (adunări repetate cu funcție și cu task)
@@ -10,3 +14,4 @@
 4. LED flasher implementat pe FPGA Blackboard (folosind clockul intern de ~4MHz și un divizor de frecvență)
 5. Afișaj folosind 4 display-uri pe 7 segmente
 6. ALU cu afișaj și debug folosind 4 butoane (3 registre + semnal de încărcare), 12 switch-uri (pentru valori) și 4 display-uri pe 7 segmente
+7. Modulele RAM și ROM
