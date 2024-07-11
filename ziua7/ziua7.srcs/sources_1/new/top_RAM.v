@@ -32,11 +32,11 @@ module top_RAM(
     reg [3:0] hint_char;
     reg [1:0] debugRAM = 0;
     reg rw = 0;
-    wire [11:0] MUX_result;
+    wire [11:0] MUX_result, out;
 
-    RAM #(12, 4096) ram_impl(out, clk, din, addr, rw);
+    RAM #(.width(12), .height(4096)) ram_impl(out, clk, din, addr, rw);
 
-    mux4to1_Nbit #(12) mux(MUX_result, out, addr, val, _, debugRAM);
+    mux4to1_Nbit #(12) mux(MUX_result, out, addr, val, .d(), debugRAM);
     top digits(a, c, clk, {hint_char, MUX_result});
 
     always @(bt)
