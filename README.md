@@ -1,6 +1,7 @@
 # Todo
 * [tema2](https://github.com/rarescolibaba/verilog/tree/main/tema2#todo)
 * [tema3](https://github.com/rarescolibaba/verilog/tree/main/tema3) (pe ramura [todo](https://github.com/rarescolibaba/verilog/tree/todo): [adbf389](https://github.com/rarescolibaba/verilog/commit/adbf38966ae8cddc0b69f031d0fea2a9502a45aa))
+* tema9: debug și corectat ALU pt. specificația nouă
 
 # Teme  
 1. MUX parametrizabil pe 8 și 32 de biți în două feluri: structural și behavioral
