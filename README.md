@@ -5,7 +5,8 @@
 # Teme  
 1. MUX parametrizabil pe 8 și 32 de biți în două feluri: structural și behavioral
 2. Diferența dintre task si funcție, înmulțire folosind ALU (adunări repetate cu funcție și cu task)
-3. Bistabil D cu N registre PI/PO (Parallel Input/Output), SI/SO (Serial Input/Output) + PISO/SIPO
+3. Bistabil D cu N registre PI/PO (Parallel Input/Output), SI/SO (Serial Input/Output) + PISO/SIPO  
+9: De actualizat RAM și ROM pentru a folosi câte 8 biți aliniați pe 32 de biți
 
 # Zile  
 1. Poartă AND pe 1 bit (dataflow)
@@ -15,3 +16,5 @@
 5. Afișaj folosind 4 display-uri pe 7 segmente
 6. ALU cu afișaj și debug folosind 4 butoane (3 registre + semnal de încărcare), 12 switch-uri (pentru valori) și 4 display-uri pe 7 segmente
 7. Modulele RAM și ROM
+8. Implementarea unui procesor folosind ALU, RAM și ROM (parțial)
+9. Procesor MIPS
