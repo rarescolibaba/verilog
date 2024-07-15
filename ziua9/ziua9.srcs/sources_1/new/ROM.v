@@ -20,14 +20,19 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module ROM #(parameter width = 32, height = 100, file = "rom.mem") (
-    output reg [width-1:0] out,
-    input [$clog2(height)-1:0] addr
+module ROM (
+    output reg [31:0] out,
+    input [31:0] addr
     );
     
-    reg [width-1:0] rom [height-1:0];
+    reg [7:0] rom [0:99];
     
-    initial $readmemh(file, rom);
+    initial $readmemh("rom.mem", rom);
     
-    always @(*) out <= rom[addr];
+    always @(*) begin
+        out[7:0] = rom[addr + 3];
+        out[15:8] = rom[addr + 2];
+        out[23:16] = rom[addr + 1];
+        out[31:24] = rom[addr];
+    end
 endmodule

@@ -28,16 +28,16 @@ module ALU #(parameter N = 32) (
     input [3:0] op
     );
     always @(*) begin
-        o <= {N{1'b0}};
-        zero <= 1'b0;
+        o = {N{1'b0}};
+        zero = 1'b0;
         case (op)
-            0: o <= a + b;
-            1: o <= a - b;
-            2: o <= a << b;
-            3: o <= a >> b;
-            4: zero <= a == b;
-            5: zero <= a > b;
-            6: zero <= a < b;
+            0: o = a + b;
+            1: o = a - b;
+            2: o = a << b;
+            3: o = a >> b;
+            4: zero = a == b;
+            5: zero = a > b;
+            6: zero = a < b;
         endcase
     end
 endmodule

@@ -41,8 +41,8 @@ module registers_bank(
     end
 
     always @(posedge clk) begin
-        RD1 = registers[RA1];
-        RD2 = registers[RA2];
-        if (REGWRITE) registers[WA] = WD;
+        RD1 <= registers[RA1];
+        RD2 <= registers[RA2];
+        if (REGWRITE) registers[WA] <= WD;
     end
 endmodule

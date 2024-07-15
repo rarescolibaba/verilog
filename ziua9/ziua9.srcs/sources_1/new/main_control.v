@@ -34,26 +34,36 @@ module main_control(
     );
     
     always @(*) begin
-        MEMWRITE = 1'b1;
-        MEM2REG = 1'b1;
         if (~opcode) begin
-            EXTOP = 1'b0;
-            ALUSRC = 1'b0;
+            EXTOP = 0;
+            ALUSRC = 0;
+            REGDST = 0;
+            REGWRITE = 1;
+            MEMWRITE = 0;
+            MEM2REG = 1;
             case (func)
-                6'b10_0000: ALUOP <= 4'b0010; // ADD
-                6'b10_0010: ALUOP <= 4'b0110; // SUB
-                6'b10_0100: ALUOP <= 4'b0000; // AND
-                6'b10_0101: ALUOP <= 4'b0001; // OR
-                6'b10_1010: ALUOP <= 4'b0111; // SLT
+                6'b10_0000: ALUOP = 4'b0010; // ADD
+                6'b10_0010: ALUOP = 4'b0110; // SUB
+                6'b10_0100: ALUOP = 4'b0000; // AND
+                6'b10_0101: ALUOP = 4'b0001; // OR
+                6'b10_1010: ALUOP = 4'b0111; // SLT
             endcase
         end
         else begin
-            EXTOP = 1'b1;
-            ALUSRC = 1'b1;
+            EXTOP = 1;
+            ALUSRC = 1;
+            REGDST = 1;
+            
             case (opcode)
-                6'b00_1000: ALUOP <= 4'b0010; // ADDI
-//                6'b01_1001: ALUOP <= 4'bxxxx; // LHI
-//                6'b01_1000: ALUOP <= 4'bxxxx; // LOI
+                6'b00_1000: begin
+                    ALUOP = 4'b0010; // ADDI
+                    REGWRITE = 1;
+                    MEMWRITE = 0;
+                    MEM2REG = 1;
+                end
+                // Not implemented: LHI, LOI
+                6'b01_1001: ALUOP = 4'bxxxx; // LHI
+                6'b01_1000: ALUOP = 4'bxxxx; // LOI
             endcase
         end
     end

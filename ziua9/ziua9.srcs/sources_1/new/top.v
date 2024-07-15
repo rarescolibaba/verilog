@@ -23,7 +23,7 @@
 module top(
     input clk
     );
-    wire [31:0] addr, sum_result, instruction, WDram, RDram, extended_num;
+    wire [31:0] addr, sum_result, instruction, RDram, extended_num;
     wire [31:0] RD1reg, RD2reg, WDreg, ALUb, ALUout;
     wire [4:0] RA1reg, RA2reg, WAreg;
     wire [3:0] ALUoperation;
@@ -55,7 +55,7 @@ module top(
     mux2to1_Nbit ALU_b_mux(ALUb, RD2reg, extended_num, ALUSRC);
     ALU calc(ALUout, ZERO, RD1reg, ALUb, ALUoperation);
 
-    RAM dm(RDram, clk, WDram, ALUout, MEMWRITE);
+    RAM dm(RDram, clk, RD2reg, ALUout, MEMWRITE);
     mux2to1_Nbit WD_mux(WDreg, RDram, ALUout, MEM2REG);
 
     main_control mc(REGDST, REGWRITE, EXTOP, ALUSRC, ALUOP, MEMWRITE, MEM2REG, ZERO, instruction[31:26], instruction[5:0]);

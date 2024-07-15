@@ -20,11 +20,12 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module PC #(parameter target = 100)(
+module PC (
     output reg [31:0] new_addr = 0,
     input clk,
     input [31:0] last_addr
     );
+    
     always @(posedge clk)
-        new_addr = last_addr;
+        new_addr <= last_addr;
 endmodule

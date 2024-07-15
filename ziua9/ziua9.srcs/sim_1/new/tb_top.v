@@ -23,9 +23,7 @@
 module tb_top;
     reg clk;
     top dut(clk);
-    
-    
-    
+
     initial begin
         clk = 0;
         forever #5 clk = ~clk;
