@@ -19,3 +19,4 @@
 7. Modulele RAM și ROM
 8. Implementarea unui procesor folosind ALU, RAM și ROM (parțial)
 9. Procesor MIPS
+10. (ziua9 extended)
