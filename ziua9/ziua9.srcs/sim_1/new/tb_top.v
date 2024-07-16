@@ -24,8 +24,10 @@ module tb_top;
     reg clk;
     top dut(clk);
 
+    initial #10 $finish;
+
     initial begin
         clk = 0;
-        forever #5 clk = ~clk;
+        forever #1 clk = ~clk;
     end
 endmodule

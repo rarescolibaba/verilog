@@ -26,7 +26,6 @@ module top(
     wire [31:0] addr, sum_result, instruction, RDram, extended_num;
     wire [31:0] RD1reg, RD2reg, WDreg, ALUb, ALUout;
     wire [4:0] RA1reg, RA2reg, WAreg;
-    wire [3:0] ALUoperation;
     
     // Semnale si intrarile lor
     wire REGDST; // WA_mux
@@ -49,11 +48,11 @@ module top(
     ROM im(instruction, addr);
 
     mux2to1_Nbit #(5) WA_mux(WAreg, RA2reg, instruction[15:11], REGDST);
-    registers_bank reg_bank(RD1reg, RD2reg, clk, RA1reg, RA2reg, WAreg, WDreg);
+    registers_bank reg_bank(RD1reg, RD2reg, clk, RA1reg, RA2reg, WAreg, WDreg, REGWRITE);
     EXT_sign sign_extend(extended_num, EXTOP, instruction[15:0]);
     
     mux2to1_Nbit ALU_b_mux(ALUb, RD2reg, extended_num, ALUSRC);
-    ALU calc(ALUout, ZERO, RD1reg, ALUb, ALUoperation);
+    ALU calc(ALUout, ZERO, RD1reg, ALUb, ALUOP);
 
     RAM dm(RDram, clk, RD2reg, ALUout, MEMWRITE);
     mux2to1_Nbit WD_mux(WDreg, RDram, ALUout, MEM2REG);

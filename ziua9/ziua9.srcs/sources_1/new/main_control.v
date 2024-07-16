@@ -34,7 +34,7 @@ module main_control(
     );
     
     always @(*) begin
-        if (~opcode) begin
+        if (opcode == 6'b0) begin
             EXTOP = 0;
             ALUSRC = 0;
             REGDST = 0;
@@ -42,11 +42,11 @@ module main_control(
             MEMWRITE = 0;
             MEM2REG = 1;
             case (func)
-                6'b10_0000: ALUOP = 4'b0010; // ADD
-                6'b10_0010: ALUOP = 4'b0110; // SUB
-                6'b10_0100: ALUOP = 4'b0000; // AND
-                6'b10_0101: ALUOP = 4'b0001; // OR
-                6'b10_1010: ALUOP = 4'b0111; // SLT
+                6'b1000_00: ALUOP = 4'b0010; // ADD
+                6'b1000_10: ALUOP = 4'b0110; // SUB
+                6'b1001_00: ALUOP = 4'b0000; // AND
+                6'b1001_01: ALUOP = 4'b0001; // OR
+                6'b1010_10: ALUOP = 4'b0111; // SLT
             endcase
         end
         else begin
@@ -55,15 +55,30 @@ module main_control(
             REGDST = 1;
             
             case (opcode)
-                6'b00_1000: begin
-                    ALUOP = 4'b0010; // ADDI
+                6'b0010_00: begin // ADDI
+                    ALUOP = 4'b0010;
                     REGWRITE = 1;
                     MEMWRITE = 0;
                     MEM2REG = 1;
                 end
-                // Not implemented: LHI, LOI
-                6'b01_1001: ALUOP = 4'bxxxx; // LHI
-                6'b01_1000: ALUOP = 4'bxxxx; // LOI
+                6'b0001_00: begin // SW
+                    ALUOP = 4'b0010;
+                    REGWRITE = 0;
+                    MEMWRITE = 1;
+                    MEM2REG = 1;
+                end
+                6'b0001_01: begin // LW
+                    ALUOP = 4'b0010;
+                    REGWRITE = 1;
+                    MEMWRITE = 0;
+                    MEM2REG = 0;
+                end
+                default: begin
+                    ALUOP = 4'b0000;
+                    REGWRITE = 0;
+                    MEMWRITE = 0;
+                    MEM2REG = 1;
+                end
             endcase
         end
     end

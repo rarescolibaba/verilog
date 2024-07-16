@@ -21,8 +21,8 @@
 
 
 module registers_bank(
-    output reg [31:0] RD1,
-    output reg [31:0] RD2,
+    output [31:0] RD1,
+    output [31:0] RD2,
     input clk,
     input [4:0] RA1,
     input [4:0] RA2,
@@ -39,10 +39,11 @@ module registers_bank(
             registers[i] = 32'b0;
         end
     end
+    
+    assign RD1 = registers[RA1];
+    assign RD2 = registers[RA2];
 
-    always @(posedge clk) begin
-        RD1 <= registers[RA1];
-        RD2 <= registers[RA2];
+    always @(negedge clk) begin
         if (REGWRITE) registers[WA] <= WD;
     end
 endmodule

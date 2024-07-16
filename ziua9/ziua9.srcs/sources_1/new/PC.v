@@ -21,7 +21,7 @@
 
 
 module PC (
-    output reg [31:0] new_addr = 0,
+    output reg [31:0] new_addr = -4,
     input clk,
     input [31:0] last_addr
     );

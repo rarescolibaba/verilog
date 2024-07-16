@@ -20,24 +20,28 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module RAM #(parameter width = 32, height = 100) (
-    output reg [width-1:0] out,
+module RAM (
+    output [31:0] out,
     input clk,
-    input [width-1:0] din,
-    input [$clog2(height)-1:0] addr,
+    input [31:0] din,
+    input [7:0] addr,
     input rw
     );
-    reg [width-1:0] ram [height-1:0];
+    reg [7:0] ram [0:99];
     integer i;
 
     initial
-        for (i = 0; i < height; i = i + 1) begin
-            ram[i] = {width{1'b0}};
+        for (i = 0; i < 100; i = i + 1) begin
+            ram[i] = 8'b0;
         end
 
-    always @(posedge clk) begin
-        if (rw)
-            ram[addr] <= din;
-        out <= ram[addr];
-    end
+    assign out = {ram[addr], ram[addr + 1], ram[addr + 2], ram[addr + 3]};
+
+    always @(negedge clk)
+        if (rw) begin
+            ram[addr] <= din[7:0];
+            ram[addr + 1] <= din[15:8];
+            ram[addr + 2] <= din[23:16];
+            ram[addr + 3] <= din[31:24];
+        end
 endmodule

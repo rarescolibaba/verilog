@@ -22,22 +22,24 @@
 
 module ALU #(parameter N = 32) (
     output reg [N-1:0] o,
-    output reg zero,
+    output zero,
     input [N-1:0] a,
     input [N-1:0] b,
     input [3:0] op
     );
+
+    assign zero = ~|o;
+
     always @(*) begin
         o = {N{1'b0}};
-        zero = 1'b0;
         case (op)
-            0: o = a + b;
-            1: o = a - b;
-            2: o = a << b;
-            3: o = a >> b;
-            4: zero = a == b;
-            5: zero = a > b;
-            6: zero = a < b;
-        endcase
+            0: o = a & b;
+            1: o = a | b;
+            2: o = a + b;
+            3: o = a - b;
+            4: o = a < b;
+            5: o = ~(a | b);
+            6: o = a > b;
+        endcase 
     end
 endmodule

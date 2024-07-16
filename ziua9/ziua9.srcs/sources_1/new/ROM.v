@@ -21,7 +21,7 @@
 
 
 module ROM (
-    output reg [31:0] out,
+    output [31:0] out,
     input [31:0] addr
     );
     
@@ -29,10 +29,5 @@ module ROM (
     
     initial $readmemh("rom.mem", rom);
     
-    always @(*) begin
-        out[7:0] = rom[addr + 3];
-        out[15:8] = rom[addr + 2];
-        out[23:16] = rom[addr + 1];
-        out[31:24] = rom[addr];
-    end
+    assign out = {rom[addr], rom[addr + 1], rom[addr + 2], rom[addr + 3]};
 endmodule
