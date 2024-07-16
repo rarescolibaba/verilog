@@ -20,3 +20,4 @@
 8. Implementarea unui procesor folosind ALU, RAM și ROM (parțial)
 9. Procesor MIPS
 10. (ziua9 extended)
+11. ziua9 extins: PC, ROM, RAM, SW
