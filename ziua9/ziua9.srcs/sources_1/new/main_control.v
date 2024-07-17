@@ -37,7 +37,7 @@ module main_control(
         if (opcode == 6'b0) begin
             EXTOP = 0;
             ALUSRC = 0;
-            REGDST = 0;
+            REGDST = 1;
             REGWRITE = 1;
             MEMWRITE = 0;
             MEM2REG = 1;
@@ -52,7 +52,7 @@ module main_control(
         else begin
             EXTOP = 1;
             ALUSRC = 1;
-            REGDST = 1;
+            REGDST = 0;
             
             case (opcode)
                 6'b0010_00: begin // ADDI

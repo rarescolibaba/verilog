@@ -25,7 +25,7 @@ module ROM (
     input [31:0] addr
     );
     
-    reg [7:0] rom [0:99];
+    reg [7:0] rom [0:65535]; // 64 KIB
     
     initial $readmemh("rom.mem", rom);
     

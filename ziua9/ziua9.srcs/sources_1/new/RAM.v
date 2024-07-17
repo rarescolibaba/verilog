@@ -24,24 +24,25 @@ module RAM (
     output [31:0] out,
     input clk,
     input [31:0] din,
-    input [7:0] addr,
+    input [31:0] addr,
     input rw
     );
-    reg [7:0] ram [0:99];
+    reg [7:0] ram [0:65535]; // 64 KIB
     integer i;
 
     initial
-        for (i = 0; i < 100; i = i + 1) begin
+        for (i = 0; i < 65536; i = i + 1) begin
             ram[i] = 8'b0;
         end
 
     assign out = {ram[addr], ram[addr + 1], ram[addr + 2], ram[addr + 3]};
 
-    always @(negedge clk)
+    always @(negedge clk) begin
         if (rw) begin
-            ram[addr] <= din[7:0];
-            ram[addr + 1] <= din[15:8];
-            ram[addr + 2] <= din[23:16];
-            ram[addr + 3] <= din[31:24];
+            ram[addr + 3] <= din[7:0];
+            ram[addr + 2] <= din[15:8];
+            ram[addr + 1] <= din[23:16];
+            ram[addr] <= din[31:24];
         end
+    end
 endmodule
