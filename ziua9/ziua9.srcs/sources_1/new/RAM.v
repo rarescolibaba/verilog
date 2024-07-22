@@ -25,7 +25,9 @@ module RAM (
     input clk,
     input [31:0] din,
     input [31:0] addr,
-    input rw
+    input rw,
+    input [15:0] inputbus,
+    output [9:0] regleds
     );
     reg [7:0] ram [0:65535]; // 64 KIB
     integer i;
@@ -37,6 +39,9 @@ module RAM (
 
     assign out = {ram[addr], ram[addr + 1], ram[addr + 2], ram[addr + 3]};
 
+    assign regleds[9:8] = ram[65532][1:0];
+    assign regleds[7:0] = ram[65533][7:0];
+
     always @(negedge clk) begin
         if (rw) begin
             ram[addr + 3] <= din[7:0];
@@ -44,5 +49,7 @@ module RAM (
             ram[addr + 1] <= din[23:16];
             ram[addr] <= din[31:24];
         end
+        ram[65534] <= inputbus[7:0]; // FFFE -> 0000 0000
+        ram[65535] <= inputbus[15:8];// FFFF -> 0000 0000
     end
 endmodule
